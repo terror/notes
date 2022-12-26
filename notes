@@ -29,15 +29,15 @@ format() {
 }
 
 help() {
-  echo 'A simple note management CLI powered by FZF.'
-  echo ''
-  echo 'Usage: notes [COMMAND]'
-  echo ''
-  echo 'Available commands:'
-  echo '  enter   Interact with the notes directory'
-  echo '  format  Format all files with prettier'
-  echo '  journal Open up todays journal'
-  echo '  help    Show this message'
+  echo 'A simple note management CLI powered by fzf.'
+  echo '                                            '
+  echo 'Usage: notes [COMMAND]                      '
+  echo '                                            '
+  echo 'Available commands:                         '
+  echo '  enter   Interact with the notes directory '
+  echo '  format  Format all files with prettier    '
+  echo '  journal Open up todays journal            '
+  echo '  help    Show this message                 '
 }
 
 journal() {

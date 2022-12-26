@@ -17,23 +17,23 @@ $ chmod +x /usr/local/bin/notes
 
 **notes** requires a few environment variables to be set:
 
-- `$EDITOR`: The text editor you'll be editing your notes with
+- `$EDITOR`: The text editor you'll be editing your notes with [default: vim]
 - `$NOTE_DIR`: Path to your notes directory
 - `$NOTE_EXT`: File extension of your notes
 
 Moreover, a few external dependencies are required for full usage of the
 program, namely:
 
-- `bat` - A cat clone
-- `fzf` - A fuzzy file finder
-- `prettier` - A document formatter
+- [`bat`](https://github.com/sharkdp/bat) - A cat clone
+- [`fzf`](https://github.com/junegunn/fzf) - A fuzzy file finder
+- [`prettier`](https://github.com/prettier/prettier) - A document formatter
 
 ### Usage
 
 Below are the available ways you can interact with the program:
 
 ```
-A simple note management CLI powered by FZF.
+A simple note management CLI powered by fzf.
 
 Usage: notes [COMMAND]
 
@@ -44,7 +44,8 @@ Available commands:
   help    Show this message
 ```
 
-**notes** also sets a bunch of keybindings within the fzf window:
+**notes** also sets a bunch of keybindings within the `fzf` window for note
+interactions:
 
 ```
 <ctrl-\> Toggle the preview window
