@@ -25,6 +25,8 @@ Moreover, a few external dependencies are required for full usage of the
 program, namely:
 
 - [`bat`](https://github.com/sharkdp/bat) - A cat clone
+- [`fd`](https://github.com/sharkdp/fd) - A fast and user-friendly alternative
+  to find
 - [`fzf`](https://github.com/junegunn/fzf) - A fuzzy file finder
 - [`prettier`](https://github.com/prettier/prettier) - A document formatter
 
@@ -32,16 +34,16 @@ program, namely:
 
 Below are the available ways you can interact with the program:
 
-```
+```present notes help
 A simple note management CLI powered by fzf.
 
-Usage: notes [COMMAND]
+Usage: notes [COMMAND] [ARGS]
 
 Available commands:
-  enter   Interact with the notes directory
-  format  Format all files with prettier
-  journal Open up todays journal
-  help    Show this message
+  e | enter         Interact with the notes directory
+  f | format <name> Format files with prettier
+  j | journal       Open up todays journal
+  h | help          Show this message
 ```
 
 **notes** also sets a bunch of keybindings within the `fzf` window for note
