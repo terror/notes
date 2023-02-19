@@ -35,15 +35,15 @@ program, namely:
 Below are the available ways you can interact with the program:
 
 ```present notes help
-A simple note management CLI powered by fzf.
-
-Usage: notes [COMMAND] [ARGS]
-
-Available commands:
+A simple note management CLI powered by fzf.         
+                                                     
+Usage: notes [COMMAND] [ARGS]                        
+                                                     
+Available commands:                                  
   e | enter         Interact with the notes directory
-  f | format <name> Format files with prettier
-  j | journal       Open up todays journal
-  h | help          Show this message
+  f | format <name> Format files with prettier       
+  j | journal       Open up todays journal           
+  h | help          Show this message                
 ```
 
 **notes** also sets a bunch of keybindings within the `fzf` window for note
