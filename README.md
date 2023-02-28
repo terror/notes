@@ -42,8 +42,9 @@ Usage: notes [COMMAND] [ARGS]
 Available commands:                                  
   e | enter         Interact with the notes directory
   f | format <name> Format files with prettier       
-  j | journal       Open up todays journal           
   h | help          Show this message                
+  j | journal       Open up todays journal           
+  s | search        Start a full-text search         
 ```
 
 **notes** also sets a bunch of keybindings within the `fzf` window for note
