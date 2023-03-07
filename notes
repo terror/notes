@@ -56,7 +56,7 @@ search() {
     --bind "enter:execute($EDITOR $NOTE_DIR/{1} &> /dev/tty)" \
     --delimiter=':' \
     --disabled \
-    --preview "bat --style=numbers --color=always --line-range :500 $NOTE_DIR/{1}" \
+    --preview "bat --style=numbers --color=always {1} --highlight-line {2} --line-range :500 $NOTE_DIR/{1}" \
     --query "$INITIAL_QUERY"
 }
 
