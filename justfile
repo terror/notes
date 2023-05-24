@@ -23,3 +23,4 @@ forbid:
 update:
   cp notes $HOME/dotfiles/bin
   present --in-place README.md
+  prettier --write README.md

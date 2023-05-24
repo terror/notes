@@ -37,15 +37,16 @@ Below are the available ways you can interact with the program:
 
 ```present notes help
 A simple note management CLI powered by fzf, fd, and ripgrep.
-                                                             
-Usage: notes [COMMAND]                                       
-                                                             
-Available commands:                                          
-  e | enter         Interact with the notes directory        
-  f | format        Format files with a prose formatter      
-  h | help          Show this message                        
-  j | journal       Open up todays journal                   
-  s | search        Start a full-text search                 
+
+Usage: notes [COMMAND]
+
+Available commands:
+  e | enter         Interact with the notes directory
+  f | format        Format files with a prose formatter
+  h | help          Show this message
+  j | journal       Open up todays journal
+  k | keybindings   View all fzf window keybindings
+  s | search        Start a full-text search
 ```
 
 **notes** also sets a bunch of keybindings within the `fzf` window for note
@@ -56,6 +57,7 @@ interactions:
 <ctrl-c> Exit
 <ctrl-d> Delete the selected file
 <ctrl-e> Create a new file whose name is the current query string
+<ctrl-f> Format the selected file
 <ctrl-j> Scroll down the preview window
 <ctrl-k> Scroll up the preview window
 <ctrl-r> Reload the result buffer

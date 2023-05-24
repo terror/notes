@@ -8,7 +8,7 @@ NOTE_FORMAT_COMMAND=${NOTE_FORMAT_COMMAND:-prettier --print-width 80 --prose-wra
 enter() {
   cd "$NOTE_DIR" && fd | query \
     --bind "ctrl-d:execute(rm -rf $NOTE_DIR/{})+reload(ls $NOTE_DIR)" \
-    --bind "enter:execute($EDITOR $NOTE_DIR/{} &> /dev/tty)" \
+    --bind "enter:become($EDITOR $NOTE_DIR/{} &> /dev/tty)" \
     --preview "bat --style=numbers --color=always --line-range :500 $NOTE_DIR/{}"
 }
 
@@ -29,6 +29,7 @@ help() {
   echo '  f | format        Format files with a prose formatter      '
   echo '  h | help          Show this message                        '
   echo '  j | journal       Open up todays journal                   '
+  echo '  k | keybindings   View all fzf window keybindings          '
   echo '  s | search        Start a full-text search                 '
 }
 
@@ -44,6 +45,18 @@ journal() {
   "$EDITOR" "$path"
 }
 
+keybindings() {
+  echo '<ctrl-\> Toggle the preview window'
+  echo '<ctrl-c> Exit'
+  echo '<ctrl-d> Delete the selected file'
+  echo '<ctrl-e> Create a new file whose name is the current query string'
+  echo '<ctrl-f> Format the selected file'
+  echo '<ctrl-j> Scroll down the preview window'
+  echo '<ctrl-k> Scroll up the preview window'
+  echo '<ctrl-r> Reload the result buffer'
+  echo '<enter>  Edit the selected file'
+}
+
 search() {
   INITIAL_QUERY=""
 
@@ -54,7 +67,7 @@ search() {
   cd "$NOTE_DIR" && query \
     --bind "change:reload:$RG_PREFIX {q} || true" \
     --bind "ctrl-d:execute(rm -rf $NOTE_DIR/{1})+reload(ls $NOTE_DIR)" \
-    --bind "enter:execute($EDITOR $NOTE_DIR/{1} &> /dev/tty)" \
+    --bind "enter:become($EDITOR $NOTE_DIR/{1} &> /dev/tty)" \
     --delimiter=':' \
     --disabled \
     --preview "bat --style=numbers --color=always {1} --highlight-line {2} --line-range :500 $NOTE_DIR/{1}" \
@@ -64,7 +77,8 @@ search() {
 query() {
   fzf \
     --ansi \
-    --bind "ctrl-e:execute($EDITOR $NOTE_DIR/{q}.$NOTE_EXT &> /dev/tty)" \
+    --bind "ctrl-e:become($EDITOR $NOTE_DIR/{q}.$NOTE_EXT &> /dev/tty)" \
+    --bind "ctrl-f:execute($NOTE_FORMAT_COMMAND $NOTE_DIR/{})+reload(ls $NOTE_DIR)" \
     --bind "ctrl-r:reload(ls $NOTE_DIR)" \
     --bind 'ctrl-\:toggle-preview' \
     --bind 'ctrl-c:abort' \
@@ -82,6 +96,7 @@ main() {
     f | format) format;;
     h | help) help;;
     j | journal) journal;;
+    k | keybindings) keybindings;;
     s | search) search;;
     *) echo 'error: Invalid command';;
   esac
