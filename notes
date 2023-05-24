@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 EDITOR=${EDITOR:-vim}
+NOTE_DIR=${NOTE_DIR:-~/notes}
+NOTE_EXT=${NOTE_EXT:-md}
+NOTE_FORMAT_COMMAND=${NOTE_FORMAT_COMMAND:-prettier --print-width 80 --prose-wrap always --single-quote true --tab-width 2 --write}
 
 enter() {
   cd "$NOTE_DIR" && fd | query \
@@ -10,11 +13,9 @@ enter() {
 }
 
 format() {
-  command=${NOTE_FORMAT_COMMAND:-prettier --print-width 80 --prose-wrap always --single-quote true --tab-width 2 --write}
-
   cd "$NOTE_DIR" && fd | query \
     --bind "ctrl-d:execute(rm -rf $NOTE_DIR/{})+reload(ls $NOTE_DIR)" \
-    --bind "enter:become($command $NOTE_DIR/{})" \
+    --bind "enter:become($NOTE_FORMAT_COMMAND $NOTE_DIR/{})" \
     --preview "bat --style=numbers --color=always --line-range :500 $NOTE_DIR/{}"
 }
 

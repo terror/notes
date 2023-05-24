@@ -18,8 +18,8 @@ chmod +x /usr/local/bin/notes
 **notes** requires a few environment variables to be set, namely:
 
 - `$EDITOR`: The text editor you'll be editing your notes with [default: `vim`]
-- `$NOTE_DIR`: Path to your notes directory
-- `$NOTE_EXT`: File extension of your notes
+- `$NOTE_DIR`: Path to your notes directory [default: `~/notes`]
+- `$NOTE_EXT`: File extension of your notes [default: `md`]
 - `$NOTE_FORMAT_COMMAND`: Command to run when formatting notes [default: `prettier --print-width 80 --prose-wrap always --single-quote true --tab-width 2 --write`]
 
 Moreover, a few external dependencies are required for full usage of the
