@@ -10,25 +10,25 @@ enter() {
 }
 
 format() {
-  cd "$NOTE_DIR" && prettier \
-    --print-width 80 \
-    --prose-wrap always \
-    --single-quote true \
-    --tab-width 2 \
-    --write "${1:-*}"."$NOTE_EXT"
+  command=${NOTE_FORMAT_COMMAND:-prettier --print-width 80 --prose-wrap always --single-quote true --tab-width 2 --write}
+
+  cd "$NOTE_DIR" && fd | query \
+    --bind "ctrl-d:execute(rm -rf $NOTE_DIR/{})+reload(ls $NOTE_DIR)" \
+    --bind "enter:become($command $NOTE_DIR/{})" \
+    --preview "bat --style=numbers --color=always --line-range :500 $NOTE_DIR/{}"
 }
 
 help() {
-  echo 'A simple note management CLI powered by fzf.         '
-  echo '                                                     '
-  echo 'Usage: notes [COMMAND] [ARGS]                        '
-  echo '                                                     '
-  echo 'Available commands:                                  '
-  echo '  e | enter         Interact with the notes directory'
-  echo '  f | format <name> Format files with prettier       '
-  echo '  h | help          Show this message                '
-  echo '  j | journal       Open up todays journal           '
-  echo '  s | search        Start a full-text search         '
+  echo 'A simple note management CLI powered by fzf, fd, and ripgrep.'
+  echo '                                                             '
+  echo 'Usage: notes [COMMAND]                                       '
+  echo '                                                             '
+  echo 'Available commands:                                          '
+  echo '  e | enter         Interact with the notes directory        '
+  echo '  f | format        Format files with a prose formatter      '
+  echo '  h | help          Show this message                        '
+  echo '  j | journal       Open up todays journal                   '
+  echo '  s | search        Start a full-text search                 '
 }
 
 journal() {
@@ -78,7 +78,7 @@ query() {
 main() {
   case "$1" in
     e | enter) enter;;
-    f | format) format "$2";;
+    f | format) format;;
     h | help) help;;
     j | journal) journal;;
     s | search) search;;
