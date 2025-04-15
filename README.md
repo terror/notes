@@ -26,10 +26,10 @@ Moreover, a few external dependencies are required for full usage of the
 program, namely:
 
 - [`bat`](https://github.com/sharkdp/bat) - A cat clone
-- [`fd`](https://github.com/sharkdp/fd) - A fast and user-friendly alternative
-  to find
+- [`fd`](https://github.com/sharkdp/fd) - A fast and user-friendly alternative to find
 - [`fzf`](https://github.com/junegunn/fzf) - A fuzzy file finder
 - [`prettier`](https://github.com/prettier/prettier) (if `$NOTE_FORMAT_COMMAND` is set to use it) - A document formatter
+- [`rg`](https://github.com/BurntSushi/ripgrep) - A line-oriented search tool
 
 ### Usage
 
