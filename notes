@@ -20,17 +20,18 @@ format() {
 }
 
 help() {
-  echo 'A simple note management CLI powered by fzf, fd, and ripgrep.'
-  echo '                                                             '
-  echo 'Usage: notes [COMMAND]                                       '
-  echo '                                                             '
-  echo 'Available commands:                                          '
-  echo '  d | daily         Open up todays note                      '
-  echo '  e | enter         Interact with the notes directory        '
-  echo '  f | format        Format files with a prose formatter      '
-  echo '  h | help          Show this message                        '
-  echo '  k | keybindings   View all fzf window keybindings          '
-  echo '  s | search        Start a full-text search                 '
+  echo 'A simple note management CLI powered by fzf, fd, and ripgrep. '
+  echo '                                                              '
+  echo 'Usage: notes [COMMAND]                                        '
+  echo '                                                              '
+  echo 'Available commands:                                           '
+  echo '  d  | daily         Open up todays note                      '
+  echo '  e  | enter         Interact with the notes directory        '
+  echo '  f  | format        Format files with a prose formatter      '
+  echo '  h  | help          Show this message                        '
+  echo '  k  | keybindings   View all fzf window keybindings          '
+  echo '  rm | remove       Remove a note from the directory          '
+  echo '  s  | search        Start a full-text search                 '
 }
 
 daily() {
@@ -38,6 +39,13 @@ daily() {
   note_file="$NOTE_DIR/$(date +%F).md"
   touch "$note_file"
   "$EDITOR" "$note_file"
+}
+
+remove() {
+  cd "$NOTE_DIR" && fd --type f | query \
+    --bind "ctrl-d:execute(rm -f $NOTE_DIR/{})+reload(fd --type f)" \
+    --bind "enter:execute(rm -f $NOTE_DIR/{})+reload(fd --type f)" \
+    --preview "bat --style=numbers --color=always --line-range :500 $NOTE_DIR/{}"
 }
 
 keybindings() {
@@ -92,6 +100,7 @@ main() {
   e | enter) enter ;;
   f | format) format ;;
   k | keybindings) keybindings ;;
+  rm | remove) remove ;;
   s | search) search ;;
   *)
     echo 'error: Invalid command' >&2
