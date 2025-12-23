@@ -3,7 +3,7 @@ set dotenv-load
 export EDITOR := 'nvim'
 
 alias c := check
-alias u := update
+alias f := fmt
 
 default:
   just --list
@@ -17,10 +17,11 @@ dev-deps:
   brew install prettier fd bat fzf
   cargo install present
 
+fmt:
+  prettier --write README.md
+
 forbid:
   ./bin/forbid
 
-update:
-  cp notes $HOME/dotfiles/bin
+readme:
   present --in-place README.md
-  prettier --write README.md
