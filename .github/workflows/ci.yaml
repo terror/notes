@@ -19,5 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check `notes` script
+      - name: Check formatting
+        run: shfmt --diff notes
+
+      - name: Run static analysis
         run: shellcheck notes
