@@ -44,7 +44,6 @@ Usage: notes [COMMAND]
 
 Available commands:
   d | daily         Open up todays note
-  f | format        Format files with a prose formatter
   h | help          Show this message
   k | keybindings   View all fzf window keybindings
   s | search        Start a full-text search
