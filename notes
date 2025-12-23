@@ -6,15 +6,15 @@ NOTE_EXT=${NOTE_EXT:-md}
 NOTE_FORMAT_COMMAND=${NOTE_FORMAT_COMMAND:-prettier --print-width 80 --prose-wrap always --single-quote true --tab-width 2 --write}
 
 enter() {
-  cd "$NOTE_DIR" && fd | query \
-    --bind "ctrl-d:execute(rm -rf $NOTE_DIR/{})+reload(ls $NOTE_DIR)" \
+  cd "$NOTE_DIR" && fd --type f | query \
+    --bind "ctrl-d:execute(rm -rf $NOTE_DIR/{})+reload(fd --type f)" \
     --bind "enter:become($EDITOR $NOTE_DIR/{} &> /dev/tty)" \
     --preview "bat --style=numbers --color=always --line-range :500 $NOTE_DIR/{}"
 }
 
 format() {
-  cd "$NOTE_DIR" && fd | query \
-    --bind "ctrl-d:execute(rm -rf $NOTE_DIR/{})+reload(ls $NOTE_DIR)" \
+  cd "$NOTE_DIR" && fd --type f | query \
+    --bind "ctrl-d:execute(rm -rf $NOTE_DIR/{})+reload(fd --type f)" \
     --bind "enter:become($NOTE_FORMAT_COMMAND $NOTE_DIR/{})" \
     --preview "bat --style=numbers --color=always --line-range :500 $NOTE_DIR/{}"
 }
@@ -66,7 +66,7 @@ search() {
 
   cd "$NOTE_DIR" && query \
     --bind "change:reload:$RG_PREFIX {q} || true" \
-    --bind "ctrl-d:execute(rm -rf $NOTE_DIR/{1})+reload(ls $NOTE_DIR)" \
+    --bind "ctrl-d:execute(rm -rf $NOTE_DIR/{1})+reload(fd --type f)" \
     --bind "enter:become($EDITOR $NOTE_DIR/{1} &> /dev/tty)" \
     --delimiter=':' \
     --disabled \
@@ -78,8 +78,8 @@ query() {
   fzf \
     --ansi \
     --bind "ctrl-e:become($EDITOR $NOTE_DIR/{q}.$NOTE_EXT &> /dev/tty)" \
-    --bind "ctrl-f:execute($NOTE_FORMAT_COMMAND $NOTE_DIR/{})+reload(ls $NOTE_DIR)" \
-    --bind "ctrl-r:reload(ls $NOTE_DIR)" \
+    --bind "ctrl-f:execute($NOTE_FORMAT_COMMAND $NOTE_DIR/{})+reload(fd --type f)" \
+    --bind "ctrl-r:reload(fd --type f)" \
     --bind 'ctrl-\:toggle-preview' \
     --bind 'ctrl-c:abort' \
     --bind 'ctrl-k:preview-up,ctrl-j:preview-down' \
