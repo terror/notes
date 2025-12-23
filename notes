@@ -39,7 +39,7 @@ journal() {
   path="$NOTE_DIR/Journal $date.$NOTE_EXT"
 
   if [[ ! -f "$path" ]]; then
-    echo "## $date" > "$path"
+    echo "## $date" >"$path"
   fi
 
   "$EDITOR" "$path"
@@ -92,13 +92,16 @@ query() {
 
 main() {
   case "$1" in
-    "" | help) help;;
-    e | enter) enter;;
-    f | format) format;;
-    j | journal) journal;;
-    k | keybindings) keybindings;;
-    s | search) search;;
-    *) echo 'error: Invalid command' >&2; return 1;;
+  "" | help) help ;;
+  e | enter) enter ;;
+  f | format) format ;;
+  j | journal) journal ;;
+  k | keybindings) keybindings ;;
+  s | search) search ;;
+  *)
+    echo 'error: Invalid command' >&2
+    return 1
+    ;;
   esac
 }
 
