@@ -44,14 +44,16 @@ Usage: notes [COMMAND]
 
 Available commands:
   d | daily         Open up todays note
-  e | enter         Interact with the notes directory
   f | format        Format files with a prose formatter
   h | help          Show this message
   k | keybindings   View all fzf window keybindings
   s | search        Start a full-text search
 ```
 
-**notes** also sets a bunch of keybindings within the `fzf` window for note
+Running `notes` without any arguments will spawn an interactive `fzf` window
+that lets you perform actions on your notes directory.
+
+`notes` sets a bunch of keybindings within the `fzf` window for note
 interactions:
 
 ```
@@ -65,3 +67,10 @@ interactions:
 <ctrl-r> Reload the result buffer
 <enter>  Edit the selected file
 ```
+
+Most notably, you can create and remove notes using `ctrl-e` and `ctrl-d`.
+
+## Prior Art
+
+I'm not aware of any similar tool out there. I suppose it is loosely inspired by
+zettelkasten-based tools, with the goal of being very simple to use.
