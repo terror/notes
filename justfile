@@ -18,7 +18,7 @@ dev-deps:
   cargo install present
 
 fmt:
-  prettier --write README.md
+  shfmt --write notes
 
 forbid:
   ./bin/forbid
