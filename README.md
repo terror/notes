@@ -3,7 +3,7 @@
 **notes** is a simple command-line utility that helps with managing a flat
 directory of notes powered by fzf, fd and ripgrep.
 
-<img width="1667" alt="Screenshot 2025-04-15 at 6 48 33 PM" src="https://github.com/user-attachments/assets/11f76a52-ef07-478e-81da-4303ec81a20d" />
+<img width="1667" alt="screenshot" src="screenshot.png" />
 
 ## Installation
 
