@@ -43,12 +43,13 @@ A simple note management CLI powered by fzf, fd, and ripgrep.
 Usage: notes [COMMAND]
 
 Available commands:
-  d | daily         Open up todays note
-  e | enter         Interact with the notes directory
-  f | format        Format files with a prose formatter
-  h | help          Show this message
-  k | keybindings   View all fzf window keybindings
-  s | search        Start a full-text search
+  d  | daily         Open up todays note
+  e  | enter         Interact with the notes directory
+  f  | format        Format files with a prose formatter
+  h  | help          Show this message
+  k  | keybindings   View all fzf window keybindings
+  rm | remove       Remove a note from the directory
+  s  | search        Start a full-text search
 ```
 
 **notes** also sets a bunch of keybindings within the `fzf` window for note
