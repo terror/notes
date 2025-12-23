@@ -26,7 +26,6 @@ help() {
   echo '                                                             '
   echo 'Available commands:                                          '
   echo '  d | daily         Open up todays note                      '
-  echo '  f | format        Format files with a prose formatter      '
   echo '  h | help          Show this message                        '
   echo '  k | keybindings   View all fzf window keybindings          '
   echo '  s | search        Start a full-text search                 '
@@ -89,7 +88,6 @@ main() {
   "") enter ;;
   help) help ;;
   d | daily) daily ;;
-  f | format) format ;;
   k | keybindings) keybindings ;;
   s | search) search ;;
   *)
