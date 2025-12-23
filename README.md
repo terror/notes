@@ -1,5 +1,7 @@
 ## notes 📝
 
+[![build](https://img.shields.io/github/actions/workflow/status/terror/notes/ci.yaml?branch=master&style=flat&labelColor=1d1d1d&color=424242&logo=GitHub%20Actions&logoColor=white&label=build)](https://github.com/terror/notes/actions/workflows/ci.yaml)
+
 **notes** is a simple command-line utility that helps with managing a flat
 directory of notes powered by fzf, fd and ripgrep.
 
