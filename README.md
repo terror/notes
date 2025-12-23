@@ -17,14 +17,14 @@ curl https://raw.githubusercontent.com/terror/notes/master/notes -o /usr/local/b
 chmod +x /usr/local/bin/notes
 ```
 
-## Dependencies
+## Usage
 
-**notes** requires a few environment variables to be set, namely:
+`notes` requires a few environment variables to be set, namely:
 
 - `$EDITOR`: The text editor you'll be editing your notes with [default: `vim`]
 - `$NOTE_DIR`: Path to your notes directory [default: `~/notes`]
 - `$NOTE_EXT`: File extension of your notes [default: `md`]
-- `$NOTE_FORMAT_COMMAND`: Command to run when formatting notes [default: `prettier --print-width 80 --prose-wrap always --single-quote true --tab-width 2 --write`]
+- `$NOTE_FORMAT_COMMAND`: Command to run when formatting notes [default: `prettier --single-quote --prose-wrap always --write`]
 
 Moreover, a few external dependencies are required for full usage of the
 program, namely:
@@ -33,9 +33,7 @@ program, namely:
 - [`fd`](https://github.com/sharkdp/fd) - A fast and user-friendly alternative to find
 - [`fzf`](https://github.com/junegunn/fzf) - A fuzzy file finder
 - [`prettier`](https://github.com/prettier/prettier) (if `$NOTE_FORMAT_COMMAND` is set to use it) - A document formatter
-- [`rg`](https://github.com/BurntSushi/ripgrep) - A line-oriented search tool
-
-## Usage
+- [`ripgrep`](https://github.com/BurntSushi/ripgrep) - A line-oriented search tool
 
 Below are the available ways you can interact with the program:
 
