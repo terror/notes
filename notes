@@ -92,13 +92,13 @@ query() {
 
 main() {
   case "$1" in
+    "" | help) help;;
     e | enter) enter;;
     f | format) format;;
-    h | help) help;;
     j | journal) journal;;
     k | keybindings) keybindings;;
     s | search) search;;
-    *) echo 'error: Invalid command';;
+    *) echo 'error: Invalid command' >&2; return 1;;
   esac
 }
 
