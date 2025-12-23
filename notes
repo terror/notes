@@ -3,7 +3,7 @@
 EDITOR=${EDITOR:-vim}
 NOTE_DIR=${NOTE_DIR:-~/notes}
 NOTE_EXT=${NOTE_EXT:-md}
-NOTE_FORMAT_COMMAND=${NOTE_FORMAT_COMMAND:-prettier --print-width 80 --prose-wrap always --single-quote true --tab-width 2 --write}
+NOTE_FORMAT_COMMAND=${NOTE_FORMAT_COMMAND:-prettier --single-quote --prose-wrap always --write}
 
 enter() {
   cd "$NOTE_DIR" && fd --type f | query \
