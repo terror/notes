@@ -5,7 +5,7 @@ directory of notes powered by fzf, fd and ripgrep.
 
 <img width="1667" alt="Screenshot 2025-04-15 at 6 48 33 PM" src="https://github.com/user-attachments/assets/11f76a52-ef07-478e-81da-4303ec81a20d" />
 
-### Installation
+## Installation
 
 You can install the script onto your machine by simply copying it into the
 appropriate location:
@@ -15,7 +15,7 @@ curl https://raw.githubusercontent.com/terror/notes/master/notes -o /usr/local/b
 chmod +x /usr/local/bin/notes
 ```
 
-### Dependencies
+## Dependencies
 
 **notes** requires a few environment variables to be set, namely:
 
@@ -33,7 +33,7 @@ program, namely:
 - [`prettier`](https://github.com/prettier/prettier) (if `$NOTE_FORMAT_COMMAND` is set to use it) - A document formatter
 - [`rg`](https://github.com/BurntSushi/ripgrep) - A line-oriented search tool
 
-### Usage
+## Usage
 
 Below are the available ways you can interact with the program:
 
