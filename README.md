@@ -48,7 +48,7 @@ Available commands:
   f  | format        Format files with a prose formatter
   h  | help          Show this message
   k  | keybindings   View all fzf window keybindings
-  rm | remove       Remove a note from the directory
+  rm | remove        Remove notes from the directory
   s  | search        Start a full-text search
 ```
 
