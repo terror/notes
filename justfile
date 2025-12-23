@@ -14,8 +14,13 @@ check:
   shellcheck notes
 
 dev-deps:
-  brew install prettier fd bat fzf
-  cargo install present
+  brew install \
+    bat \
+    fd \
+    fzf \
+    prettier \
+    shfmt \
+    terror/tap/present
 
 fmt:
   shfmt --write notes
